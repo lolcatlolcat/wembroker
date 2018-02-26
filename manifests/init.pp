@@ -19,19 +19,27 @@ class wembroker (
   $managementConsoleProductId = '0FC446DF-9BE8-4808-A838-208C2D80A2EC',
   $wem_svc_username,
   $wem_svc_password,
+  $defaultAdministratorsGroup,
+  $vuemUserSqlPassword,
   $databaseServer,
   $databaseName,
+  $databaseFilesFolder,
+  $sqlalwayson = false,
+	$sqlavailabilitygroup = '', #Name of the SQL Server Availability group
+	$sqldbbackuppath = '',
   $citrixLicenseServer,
   $loadbalandedWem = false,
-  $loadbalancedWemFqdn = '',
+  $loadbalancedWemFqdn = ''
 )
 
 {
   contain wembroker::serviceaccounts
   contain wembroker::install
   contain wembroker::config
+  contain wembroker::databasehighavailability
 
   Class['::wembroker::serviceaccounts'] ->
   Class['::wembroker::install'] ->
-  Class['::wembroker::config']
+  Class['::wembroker::config'] ->
+  Class['::wembroker::databasehighavailability']
 }
