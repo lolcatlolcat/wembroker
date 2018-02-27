@@ -11,6 +11,18 @@ describe 'wembroker' do
   #  'compress' => 'foo'
   #} }
 
-  it { is_expected.to compile }   # this is the simplest test possible to make sure the Puppet code compiles
-  it { is_expected.to compile.with_all_deps }  # same as above except it will test all the dependencies
+  let(:manifest) {
+      <<-EOS
+include wembroker
+EOS
+    }
+
+  it 'should apply without errors' do
+    apply_manifest(manifest, :catch_failures => true)
+  end
+
+  it 'should apply a second time without changes' do
+    @result = apply_manifest(manifest)
+    expect(@result.exit_code).to be_zero
+  end
 end
