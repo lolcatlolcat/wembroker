@@ -1,13 +1,42 @@
 {
-  "author": "",
-  "dependencies": [],
-  "license": "",
-  "name": "virtualdesktopdevops-wembroker",
-  "operatingsystem_support": [],
-  "project_page": "",
-  "requirements": [],
-  "source": "",
-  "summary": "",
-  "tags": [],
+  "author": "virtualdesktopdevops",
+  "dependencies": [
+	{
+		"name": "reidmv/unzip",
+		"version_requirement": ">= 0.1.2"
+	},
+	{
+		"name": "puppetlabs/dsc",
+		"version_requirement": ">= 1.5.0"
+	}
+  ],
+  "license": "Apache-2.0",
+  "name": "virtualdesktopdevops-citrixwemdsc",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "windows",
+      "operatingsystemrelease": [
+        "Server 2012 R2",
+        "Server 2016"
+      ]
+    }
+  ],
+  "project_page": "http://www.virtualdesktopdevops.com/",
+  "requirements": [
+  	{
+      "name": "puppet",
+      "version_requirement": ">= 3.8.0 < 6.0.0"
+    }
+  ],
+  "source": "https://virtualdesktopdevops.github.io/wembroker/",
+  "summary": "The wembroker puppet community module contains resources for deployment and configuration of Citrix Workspace Environment Management 4.5 (ex Norskcale VUEM) database and infrastructure services.",
+  "tags": [
+    "powershell",
+    "dsc",
+    "xendesktop",
+    "citrix",
+    "wem",
+    "norskale"
+  ],
   "version": "0.1.0"
 }
