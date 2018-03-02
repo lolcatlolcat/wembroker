@@ -1,0 +1,4 @@
+pkg/
+tests/
+_config.yml
+.fixtures.yml
