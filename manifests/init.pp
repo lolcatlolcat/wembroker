@@ -13,23 +13,25 @@
 class wembroker (
   $setup_svc_username,
   $setup_svc_password,
-  $infrastructureServicesSourcePath,
-  $infrastructureServicesProductId = '40BF3158-89BA-44A4-96B0-6D806FFD5AA3',
-  $managementConsoleSourcePath,
-  $managementConsoleProductId = '0FC446DF-9BE8-4808-A838-208C2D80A2EC',
+  $infrastructureservicessourcepath,
+  $managementconsolesourcepath,
   $wem_svc_username,
   $wem_svc_password,
-  $defaultAdministratorsGroup,
-  $vuemUserSqlPassword,
-  $databaseServer,
-  $databaseName,
-  $databaseFilesFolder,
+  $defaultadministratorsgroup,
+  $vuemusersqlpassword,
+  $databaseserver,
+  $databasename,
+  $databasefilesfolder,
+  $citrixlicenseserver,
+  $infrastructureservicesproductid = '40BF3158-89BA-44A4-96B0-6D806FFD5AA3',
+  $managementconsoleproductid = '0FC446DF-9BE8-4808-A838-208C2D80A2EC',
+  $sqlservermodulesource = 'internet',
+  $sqlservermodulesourcepath = '',
   $sqlalwayson = false,
-	$sqlavailabilitygroup = '', #Name of the SQL Server Availability group
-	$sqldbbackuppath = '',
-  $citrixLicenseServer,
-  $loadbalandedWem = false,
-  $loadbalancedWemFqdn = ''
+  $sqlavailabilitygroup = '',
+  $sqldbbackuppath = '',
+  $loadbalandedwem = false,
+  $loadbalancedwemfqdn = ''
 )
 
 {
@@ -38,8 +40,8 @@ class wembroker (
   contain wembroker::config
   contain wembroker::databasehighavailability
 
-  Class['::wembroker::serviceaccounts'] ->
-  Class['::wembroker::install'] ->
-  Class['::wembroker::config'] ->
-  Class['::wembroker::databasehighavailability']
+  Class['::wembroker::serviceaccounts']
+  -> Class['::wembroker::install']
+  -> Class['::wembroker::config']
+  -> Class['::wembroker::databasehighavailability']
 }
