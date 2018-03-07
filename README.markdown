@@ -53,25 +53,25 @@ The module can be installed on a Core, Standard, Datacenter version of Windows 2
 
 ~~~puppet
 node 'WEM' {
-	class{'wembroker':
+  class{'wembroker':
     setup_svc_username               =>'DOMAIN-TEST\Administrator',
-		setup_svc_password               =>'P@ssw0rd',
-		infrastructureservicessourcepath => '\\\\fileserver.local\sources\Workspace-Environment-Management-v-4-05-00\Citrix Workspace Environment Management Infrastructure Services Setup.exe',
-		infrastructureServicesProductId  => '6F9F03C1-C707-4148-B45D-8DF3AE0033DC',
-		managementconsolesourcepath      => '\\\\fileserver.domain-test.com\sources\Workspace-Environment-Management-v-4-05-00\Citrix Workspace Environment Management Console Setup.exe',
-		managementconsoleproductid       => 'EB282EB6-C33F-4DB7-AEDA-B8F672347987',
-		$sqlservermodulesource           => 'offline',
-	  $sqlservermodulesourcepath       => '\\\\fileserver.domain-test.com\sources\sqlserver_powershell_21.0.17199.zip',
-		wem_svc_username                 => 'svc-wem-puppet',
-		wem_svc_password                 => 'P@ssw0rd',
-		defaultadministratorsgroup       =>'DOMAIN-TEST\Domain Admins',
-		vuemusersqlpassword              =>'P@ssw0rd',
-		databaseserver                   =>'CLDB01LI.domain-test.com',
-		databasename                     =>'CitrixWEMPuppet01',
-		databasefilesfolder              =>'c:\\Program Files\\Microsoft SQL Server\\MSSQL13.MSSQLSERVER\\MSSQL\\Data',
-		citrixlicenseserver              =>'SRV-LIC01.domain-test.com',
-		loadbalandedwem                  => true,
-		loadbalancedwemfqdn              => 'wem.domain-test.com',
-	}
+    setup_svc_password               =>'P@ssw0rd',
+    infrastructureservicessourcepath => '\\\\fileserver.local\sources\Workspace-Environment-Management-v-4-05-00\Citrix Workspace Environment Management Infrastructure Services Setup.exe',
+    infrastructureServicesProductId  => '6F9F03C1-C707-4148-B45D-8DF3AE0033DC',
+    managementconsolesourcepath      => '\\\\fileserver.domain-test.com\sources\Workspace-Environment-Management-v-4-05-00\Citrix Workspace Environment Management Console Setup.exe',
+    managementconsoleproductid       => 'EB282EB6-C33F-4DB7-AEDA-B8F672347987',
+    sqlservermodulesource            => 'offline',
+    sqlservermodulesourcepath        => '\\\\fileserver.domain-test.com\sources\sqlserver_powershell_21.0.17199.zip',
+    wem_svc_username                 => 'svc-wem-puppet',
+    wem_svc_password                 => 'P@ssw0rd',
+    defaultadministratorsgroup       =>'DOMAIN-TEST\Domain Admins',
+    vuemusersqlpassword              =>'P@ssw0rd',
+    databaseserver                   =>'CLDB01LI.domain-test.com',
+    databasename                     =>'CitrixWEMPuppet01',
+    databasefilesfolder              =>'c:\\Program Files\\Microsoft SQL Server\\MSSQL13.MSSQLSERVER\\MSSQL\\Data',
+    citrixlicenseserver              =>'SRV-LIC01.domain-test.com',
+    loadbalandedwem                  => true,
+    loadbalancedwemfqdn              => 'wem.domain-test.com',
+  }
 }
 ~~~
