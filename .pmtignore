@@ -1,4 +1,5 @@
 pkg/
 tests/
+assets/
 _config.yml
 .fixtures.yml

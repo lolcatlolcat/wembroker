@@ -29,6 +29,7 @@
     }
   ],
   "source": "https://virtualdesktopdevops.github.io/wembroker/",
+  "issues_url": "https://github.com/virtualdesktopdevops/wembroker/issues",
   "summary": "The wembroker puppet community module contains resources for deployment and configuration of Citrix Workspace Environment Management 4.5 (ex Norskcale VUEM) database and infrastructure services.",
   "tags": [
     "powershell",
@@ -36,6 +37,7 @@
     "xendesktop",
     "citrix",
     "wem",
+    "workspace environment management",
     "norskale"
   ],
   "version": "0.1.0"
