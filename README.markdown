@@ -13,6 +13,8 @@ This module requires SQLServer powershell module v21.0.17199. The module will in
 - From Powershell Gallery if **sqlservermodulesource** parameter is set to **internet**
 - From an enterprise location if **sqlservermodulesource** parameter is set to **offline**. In this case, the ZIP file containing the SQLServer v21.0.17199 (_sqlserver_powershell_21.0.17199.zip_) has to be manually downloaded from Powershell Gallery using the `Save-Module -Name SqlServer -Path <path> -RequiredVersion 21.0.17199` powershell command.
 
+This module requires a custom version of the puppetlabs-dsc module compiled with [CitrixWemDsc](https://www.powershellgallery.com/packages/CitrixWemDsc/0.1.0.0) as a dependancy. Ready to use module provided on [Github](https://github.com/virtualdesktopdevops/puppetlabs-dsc/tree/1.5.0_custom).
+
 ## Change log ##
 
 A full list of changes in each version can be found in the [change log](CHANGELOG.md).
