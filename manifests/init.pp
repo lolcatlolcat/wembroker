@@ -11,19 +11,37 @@
 # Sample Usage:
 #
 class wembroker (
-  $svc_username='USER01',
-  $svc_password='PASSWORD01',
-  $wem_service_username,
-  $wem_service_password,
-  $databaseserver = 'SQL01',
-  $citrixLicenseServer = 'srv-lic01',
-  $domainNetbiosName='TESTLAB'
+  $setup_svc_username,
+  $setup_svc_password,
+  $infrastructureservicessourcepath,
+  $managementconsolesourcepath,
+  $wem_svc_username,
+  $wem_svc_password,
+  $defaultadministratorsgroup,
+  $vuemusersqlpassword,
+  $databaseserver,
+  $databasename,
+  $databasefilesfolder,
+  $citrixlicenseserver,
+  $infrastructureservicesproductid = '40BF3158-89BA-44A4-96B0-6D806FFD5AA3',
+  $managementconsoleproductid = '0FC446DF-9BE8-4808-A838-208C2D80A2EC',
+  $sqlservermodulesource = 'internet',
+  $sqlservermodulesourcepath = '',
+  $sqlalwayson = false,
+  $sqlavailabilitygroup = '',
+  $sqldbbackuppath = '',
+  $loadbalandedwem = false,
+  $loadbalancedwemfqdn = ''
 )
 
 {
+  contain wembroker::serviceaccounts
   contain wembroker::install
   contain wembroker::config
+  contain wembroker::databasehighavailability
 
-  Class['::wembroker::install'] ->
-  Class['::wembroker::config']
+  Class['::wembroker::serviceaccounts']
+  -> Class['::wembroker::install']
+  -> Class['::wembroker::config']
+  -> Class['::wembroker::databasehighavailability']
 }

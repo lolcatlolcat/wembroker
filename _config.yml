@@ -1,0 +1,14 @@
+title: Citrix Workspace Environment Management (WEM) puppet module
+description: Puppet module installing an enterprise grade Citrix WEM environment with database and infrastructure services.
+google_site_verification: R71XDERzPOp9lUudi8X6iKrpcoIgDG_1HzRMz_TMaDY
+google_analytics: UA-12767493-6
+theme: jekyll-theme-slate
+show_downloads: true
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-redirect-from
+  - jekyll-mentions
+jekyll-mentions:
+  base_url: http://www.virtualdesktopdevops.com/puppet-modules/wembroker.html
