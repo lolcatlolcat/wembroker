@@ -1,8 +1,8 @@
 {
-  "author": "virtualdesktopdevops",
+  "author": "Stolen from VirtualDesktopDevops",
   "dependencies": [
 	{
-		"name": "reidmv/unzip",
+		"name": "puppet/archive",
 		"version_requirement": ">= 0.1.2"
 	},
 	{
@@ -11,7 +11,7 @@
 	}
   ],
   "license": "Apache-2.0",
-  "name": "virtualdesktopdevops-wembroker",
+  "name": "citrix-wembroker",
   "operatingsystem_support": [
     {
       "operatingsystem": "windows",

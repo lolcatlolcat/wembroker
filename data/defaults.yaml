@@ -1,0 +1,7 @@
+## Defaults for module ##
+--- 
+loadbalandedwem: false
+mgmtconsole_productid: '0FC446DF-9BE8-4808-A838-208C2D80A2EC'
+services_productid: '40BF3158-89BA-44A4-96B0-6D806FFD5AA3'
+sqlalwayson: false
+sqlserver_modulesource: internet

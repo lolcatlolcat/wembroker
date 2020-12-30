@@ -1,28 +1,30 @@
 #Class configuring WEM database & infrastructure service
 class wembroker::config inherits wembroker {
   #Create WEM Database
-  dsc_wemdatabase{'WEMDatabase':
-    dsc_databasename                    => $wembroker::databasename,
-    dsc_databaseserver                  => $wembroker::databaseserver,
-    dsc_databasefilesfolder             => $wembroker::databasefilesfolder,
-    dsc_vuemusersqlpassword             => $wembroker::vuemusersqlpassword,
-    dsc_weminfrastructureserviceaccount => "${facts['domainnetbiosname']}\\${wembroker::wem_svc_username}",
-    dsc_defaultadministratorsgroup      => $wembroker::defaultadministratorsgroup,
+  dsc_wemdatabase{ 'WEMDatabase':
+    dsc_databasename                    => $wembroker::db_name,
+    dsc_databaseserver                  => $wembroker::db_server,
+    dsc_databasefilesfolder             => $wembroker::db_files_folder,
+    dsc_vuemusersqlpassword             => $wembroker::vuemuser_sql_password,
+    dsc_weminfrastructureserviceaccount => "${wembroker::netbios_name}\\${wembroker::wem_svc_username}",
+    dsc_defaultadministratorsgroup      => $wembroker::admin_group,
     dsc_ensure                          => 'Present',
-    dsc_psdscrunascredential            => {'user' => $wembroker::setup_svc_username, 'password' => $wembroker::setup_svc_password}
+    dsc_psdscrunascredential            => {
+      'user'     => $wembroker::domain_admin_username,
+      'password' => $wembroker::domain_admin_password
+    }
   }
-
   #Configure WEM Broker
-  ->dsc_wembrokerconfig{'WEMBrokerConfig':
-    dsc_databasename                                 => $wembroker::databasename,
-    dsc_databaseserver                               => $wembroker::databaseserver,
+  -> dsc_wembrokerconfig{ 'WEMBrokerConfig':
+    dsc_databasename                                 => $wembroker::db_name,
+    dsc_databaseserver                               => $wembroker::db_server,
     dsc_setsqluserspecificpassword                   => 'Enable',
-    dsc_sqluserspecificpassword                      => $wembroker::vuemusersqlpassword,
+    dsc_sqluserspecificpassword                      => $wembroker::vuemuser_sql_password,
     dsc_enableinfrastructureserviceaccountcredential => 'Enable',
     dsc_infrastructureserviceaccountcredential       => {
-      'user'     => "${facts['domainnetbiosname']}\\${wembroker::wem_svc_username}",
+      'user'     => "${::netbios_name}\\${wembroker::wem_svc_username}",
       'password' => $wembroker::wem_svc_password
-      },
+    },
     dsc_usecacheevenifonline                         => 'Disable',
     dsc_debugmode                                    => 'Disable',
     dsc_sendgoogleanalytics                          => 'Disable',
@@ -32,7 +34,7 @@ class wembroker::config inherits wembroker {
     dsc_agentregistrationsretentionperiod            => 1,
     dsc_databasemaintenanceexecutiontime             => '02:00',
     dsc_globallicenseserveroverride                  => 'Enable',
-    dsc_licenseservername                            => $wembroker::citrixlicenseserver,
+    dsc_licenseservername                            => $wembroker::citrix_licenseserver,
     dsc_licenseserverport                            => 27000
   }
 }
